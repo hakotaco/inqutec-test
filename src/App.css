@@ -1,0 +1,362 @@
+:root {
+  --main-blue: #1589C2;  
+  --selected-blue: #296380;
+  --main-green: #E5F3EC;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  /* background: rgba(255, 255, 255, 0.2); */
+  margin: 16px 28px 16px 28px;
+  float: left;
+}
+.App{
+  border-top: 10px solid #02A95A;
+}
+
+.site-layout-background {
+  background-color: var(--main-green);
+  height: 100%;
+}
+.site-layout-background2{
+  background-color: #f9f9f9;
+}
+.site-layout-background .ant-row{
+  width: 100%;
+}
+.App>.ant-layout>.ant-layout-content{
+  padding: 30px 50px 0px 50px!important;
+  height: 90vh;
+  background-color: #fff;
+}
+.ant-layout-content{
+  min-height: 480px !important;
+}
+/* .site-layout-background .ant-col  */
+.ant-layout-header{
+  background-color: #fff;
+}
+.ant-layout-sider{
+  float: right;
+}
+.bigMenuHolder{
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+.bigMenuHolder li{
+  list-style-type: none;
+  margin: 0px 5px 0px 5px ;
+}
+.bigMenuHolder button{
+  border: none;
+  background-color: #fff;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 16px;
+  outline: none !important;
+  transition: background-color 300ms;
+}
+.bigMenuHolder button:hover{
+  background-color: #dfdfdf;
+}
+.selectedMenu{
+  color: var(--selected-blue) !important;
+  text-decoration: underline;
+}
+
+
+/* MENU CSS OVER */
+
+/* CONTENT CSS */
+.content-big-image{
+  padding: 20px 20px 20px 50px;
+  width: 100%;
+  height: 60vh;
+  min-height: 480px;
+  background-color: #f9f9f9f9;
+  box-shadow: 0px 0px 10px #DFDFDF;
+}
+.content-big-sider{
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 60vh;
+  min-height: 480px;
+  background-color: #E5F3EC;
+}
+.givShadow{
+  box-shadow: 0px 0px 10px #DFDFDF;
+}
+
+/* .ant-layout-sider{
+  max-width: 100% !important;
+  min-width: 30px !important;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #DFDFDF;
+} */
+
+.sliderCreate{
+  height: 100%;
+  width: 60px;
+  float: right;
+  background-color: #f9f9f9;
+  border-radius: 35px;
+  box-shadow: 0px 0px 10px #DFDFDF;
+}
+
+.animateSlider{
+  animation-name: setHeight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes setHeight{
+  from{width: 60px;}
+  to{width: 100%;}
+  from{border-radius: 35px;}
+  to{border-radius: 0px;}
+}
+
+.animateSliderOut{
+  animation-name: setHeightOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes setHeightOut{
+  from{width: 100%;}
+  to{width: 60px;}
+  from{border-radius: 0px;}
+  to{border-radius: 35px;}
+}
+
+.sliderCreate>img{
+  width: 30px;
+  height: 30px;
+  margin: 15px 15px 7.5px 15px;
+  float: right;
+}
+
+.speechtoText{
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+  height: 200px;
+  width: 90%;
+  background-color: #A7CFE2;
+  border-radius: 8px;
+}
+
+.animateSpeech{
+  animation-name: setSpeechHeight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes setSpeechHeight{
+  from{height: 200px;}
+  to{height: 50px;}
+}
+.animateSpeechOut{
+  animation-name: setSpeechHeightOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes setSpeechHeightOut{
+  from{height: 50px;}
+  to{height: 200px;}
+}
+.speechtoText img{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+}
+.speechtoText input{
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+  border: none;
+  padding-left: 5px;
+  margin: 5px 0px 5px 5px;
+}
+
+.sizeToggle{
+  position: absolute;
+  top: 45%;
+  width: 40px;
+  height: 40px;
+}
+.sizeToggle>img{
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+@media(max-width:1270px){
+  .speechtoText input{
+    width: 68%;
+  }
+}
+
+.affiliates{
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.affiliates img{
+  width: 30%;
+  height: auto;
+  max-width: 135px;
+}
+
+.steps{
+  padding: 10px;
+}
+.step{
+  width: 25%;
+  float: left;
+  /* background-color: #ffffff; */
+  height: 100%;
+  display: flex;
+}
+.circle{
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--main-blue);
+  color: #fff;
+  margin-top: 7.5px;
+  position: relative;
+}
+.circle p{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 12px;
+}
+
+.bar{
+/* float: left; */
+  /* width: 90%; */
+  height: 5px;
+  border-radius:2px;
+  margin-top: 15px;
+  background-color: #fff;
+  flex-grow: 100;
+}
+
+.innerBar{
+  width: 50%;
+  height: 100%;
+  background-color: var(--main-blue);
+  border-radius: inherit;
+}
+
+.selectedStep .circle{
+  background-color: #FFDC60;
+  color: var(--selected-blue);
+}
+.selectedStep .innerBar{
+  background-color: #FFDC60;
+}
+
+.messages{
+  /* position: relative; */
+  width: 90%;
+  margin:40px 0px 0px 40px;
+  height: 380px;
+  /* white-space: nowrap; */
+  overflow-y: auto;
+  display: none;
+  scroll-behavior: smooth;
+}
+.patient{
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  /* display: flex; */
+  text-align: left;
+}
+.patient .message-box{
+  display: inline-block;
+  width: 50%;
+  background-color: var(--main-green);
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px lightgray;
+  padding: 10px;
+}
+
+.doctor{
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  /* display: flex; */
+  text-align: right;
+}
+.doctor .message-box{
+  display: inline-block;
+  width: 50%;
+  background-color: var(--main-blue);
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px lightgray;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.ant-dropdown-link{
+  float: right;
+  border: none;
+  outline: none !important;
+  background-color: #fff;
+  margin: 10px 2px 10px 2px;
+}
+@media(max-width:992px){
+  .site-layout-background{
+    position: relative;
+  }
+  .ant-col .ant-layout-content{
+    width: 100%;
+    max-width: 600px;
+    margin: auto auto;
+    margin-top:20vh;
+    height: 240px;
+    min-height: 240px !important;
+  }
+  .content-big-image{
+    height: 100%;
+    min-height: 240px !important;
+  }
+
+  .content-small-chat{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #000000;
+    height: 0px;
+    left: 0px;
+    margin-top: ;
+  }
+  .floating-input{
+    width: 100vw;
+    margin: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: auto;
+  }
+  .speechtoText{
+    height: 50px;
+    width: 98%;
+  }
+
+}
