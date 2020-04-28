@@ -137,7 +137,7 @@ export default class Mobile extends Component{
                                 <p>{index+1}</p>
                             </div>
                             <div className="bar">
-                                <div className="innerBar" style={{width:'0%'}}>
+                                <div className="innerBar" style={{width:100*(index-1)/3+'%'}}>
                                 </div>
                             </div>
                     </div>
@@ -197,17 +197,17 @@ export default class Mobile extends Component{
                         </div>
                         <div className="doctor">
                         <div className="message-box">
-                            <p>This is chat for tab {this.state.active+1}</p>
+                            <p>This is a chat for {this.state.selected + 1}</p>
                         </div>
                         </div>
                         <div className="doctor">
                         <div className="message-box">
-                            <p>This is chat for tab {this.state.active+1}</p>
+                            <p>This is a chat for {this.state.selected + 1}</p>
                         </div>
                         </div>
                         <div className="doctor">
                         <div className="message-box">
-                            <p>This is chat for tab {this.state.active+1}</p>
+                            <p>This is a chat for {this.state.selected + 1}</p>
                         </div>
                         </div>
                     </div>
