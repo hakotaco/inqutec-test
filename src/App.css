@@ -3,7 +3,11 @@
   --selected-blue: #296380;
   --main-green: #E5F3EC;
 }
-
+body{
+  max-width: 1920px;
+  max-height: 1080px;
+  margin: auto auto;
+}
 .logo {
   width: 120px;
   height: auto;
@@ -24,18 +28,42 @@
 }
 .site-layout-background .ant-row{
   width: 100%;
+  max-height: 100%;
 }
 .App>.ant-layout>.ant-layout-content{
-  padding: 30px 50px 0px 50px!important;
+  padding: 10px 80px 0px 80px;
   height: 90vh;
   background-color: #fff;
 }
-.ant-layout-content{
-  min-height: 480px !important;
+.contentHolder{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto auto; */
 }
+.contentHolderChild{
+  width: auto;
+  height: auto;
+}
+/* .carousel-item{
+  max-width: 100% !important;
+  max-height: 100% !important;
+} */
+.carousel-caption p{
+  color: black;
+}
+  .d-block{
+    max-width: 100% !important;
+    height: auto !important; 
+  box-shadow: 0px 0px 10px #DFDFDF;
+  }
+
 /* .site-layout-background .ant-col  */
 .ant-layout-header{
   background-color: #fff;
+  padding: 0px 80px;
 }
 .ant-layout-sider{
   float: right;
@@ -70,33 +98,23 @@
 /* MENU CSS OVER */
 
 /* CONTENT CSS */
-.content-big-image{
-  padding: 20px 20px 20px 50px;
-  width: 100%;
-  height: 60vh;
-  min-height: 480px;
-  background-color: #f9f9f9f9;
-  box-shadow: 0px 0px 10px #DFDFDF;
-}
+
 .content-big-sider{
   padding: 0px 20px 0px 20px;
   width: 100%;
-  height: 60vh;
+  height: 100%;
   min-height: 480px;
   background-color: #E5F3EC;
+}
+@media(max-width: 1275px){
+.content-big-sider{
+  height: 60vh;
+}
+
 }
 .givShadow{
   box-shadow: 0px 0px 10px #DFDFDF;
 }
-
-/* .ant-layout-sider{
-  max-width: 100% !important;
-  min-width: 30px !important;
-  height: 100%;
-  max-height: 100%;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px #DFDFDF;
-} */
 
 .sliderCreate{
   height: 100%;
@@ -132,11 +150,18 @@
   to{border-radius: 35px;}
 }
 
-.sliderCreate>img{
+.helpImg{
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+.helpImg img{
   width: 30px;
   height: 30px;
   margin: 15px 15px 7.5px 15px;
-  float: right;
 }
 
 .speechtoText{
@@ -175,13 +200,14 @@
   bottom: -10px;
   right: -10px;
 }
-.speechtoText input{
+.speechtoText textarea{
   width: 80%;
-  height: 80%;
+  height: 100%;
   border-radius: 5px;
   border: none;
   padding-left: 5px;
-  margin: 5px 0px 5px 5px;
+  overflow-wrap: break-word;
+  z-index: 100;
 }
 
 .sizeToggle{
@@ -189,15 +215,17 @@
   top: 45%;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 .sizeToggle>img{
   margin-left: 10px;
   width: 20px;
   height: 20px;
+  transition: all 0.4s ease;
 }
 
 @media(max-width:1270px){
-  .speechtoText input{
+  .speechtoText textarea{
     width: 68%;
   }
 }
@@ -215,24 +243,42 @@
 }
 
 .steps{
-  padding: 10px;
+  padding: 10px 30px;
 }
 .step{
-  width: 25%;
+  width: 20%;
   float: left;
-  /* background-color: #ffffff; */
-  height: 100%;
+  height: auto;
   display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.stepLoading{
+  width: 100%;
+  display: flex;
+  /* transition: ; */
+}
+.step-text{
+  width: 100%;
+  height: auto;
+}
+.step-text h5{
+  color: var(--selected-blue);
+  font-weight: bold;
+  margin-left: 5px;
 }
 .circle{
   text-align: center;
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: var(--main-blue);
+  /* padding-top: 10%; */
+  /* flex-grow: 1; */
+  background-color: var(--selected-blue);
   color: #fff;
   margin-top: 7.5px;
   position: relative;
+  transition: color 0.2s;
 }
 .circle p{
   position: absolute;
@@ -241,6 +287,7 @@
   bottom: 0;
   right: 0;
   font-size: 12px;
+  font-weight: bold;
 }
 
 .bar{
@@ -250,18 +297,20 @@
   border-radius:2px;
   margin-top: 15px;
   background-color: #fff;
-  flex-grow: 100;
+  flex-grow: 10;
+  position: relative;
 }
 
 .innerBar{
-  width: 50%;
   height: 100%;
   background-color: var(--main-blue);
   border-radius: inherit;
+  transition: width 500ms;
 }
 
+
 .selectedStep .circle{
-  background-color: #FFDC60;
+  background-color: #FFC803;
   color: var(--selected-blue);
 }
 .selectedStep .innerBar{
@@ -271,8 +320,9 @@
 .messages{
   /* position: relative; */
   width: 90%;
-  margin:40px 0px 0px 40px;
-  height: 380px;
+  margin:0px 0px 0px 40px;
+  height: 90%;
+  padding-top: 20px;
   /* white-space: nowrap; */
   overflow-y: auto;
   display: none;
@@ -287,7 +337,7 @@
 }
 .patient .message-box{
   display: inline-block;
-  width: 50%;
+  width: 70%;
   background-color: var(--main-green);
   color: black;
   border-radius: 4px;
@@ -304,7 +354,7 @@
 }
 .doctor .message-box{
   display: inline-block;
-  width: 50%;
+  width: 70%;
   background-color: var(--main-blue);
   color: #fff;
   border-radius: 4px;
@@ -320,43 +370,152 @@
   background-color: #fff;
   margin: 10px 2px 10px 2px;
 }
+/* MOBILE VERSION CSS */
+
 @media(max-width:992px){
-  .site-layout-background{
-    position: relative;
+  .App{
+    border-color: var(--selected-blue) !important; 
   }
-  .ant-col .ant-layout-content{
+  .ant-layout-header{
+    padding: 0px 10px;
+  }
+  .App>.ant-layout>.ant-layout-content{
+    padding: 10px 10px 10px 10px;
     width: 100%;
-    max-width: 600px;
-    margin: auto auto;
-    margin-top:20vh;
-    height: 240px;
-    min-height: 240px !important;
+    height: 90vh;
   }
-  .content-big-image{
+  .mobileContainer{
+    width: 100%;
     height: 100%;
-    min-height: 240px !important;
+  }
+  .site-layout-background{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: height 500ms ease;
   }
 
-  .content-small-chat{
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: #000000;
-    height: 0px;
-    left: 0px;
-    margin-top: ;
+.upButton{
+  /* align-self: flex-end; */
+  cursor: pointer;
+  transition: all .2s ease-in-out; 
+  margin-top: 50px;
+
+}
+.upButton:hover{
+  transform: scale(1.4);
+}
+/* Carousel css */
+  .carousel{
+    width: 80vw;
+    height: auto;
+    transition: width 0.2s;
   }
+
+  .steps{
+    width: 100%;
+  }
+  .steps h5{
+    font-size: 12px;
+  }
+  /* input css */
   .floating-input{
     width: 100vw;
-    margin: 10px;
     position: fixed;
-    left: 0;
-    bottom: 0;
-    height: auto;
+    left: 10px;
+    bottom: 10px;
+    height: 50px;
+    background-color: #fff;
   }
   .speechtoText{
-    height: 50px;
+    height: 90%;
     width: 98%;
+  }
+  
+  .speechtoText input{
+    width: 85%;
+    height: 100%;
+    margin: 0px 0px 5px 5px;
+    border: none;
+    border-radius: 4px;
+  }
+  .messages{
+    display: block;
+    width: 80%;
+    margin: 0px;
+    padding-left: 20px;
+    float: left;
+  }
+  .messageContainer{
+    /* display: none; */
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    margin-top: 10px;
+    transition: opacity 0.6s;
+    overflow: hidden;
+  }
+  .message-box{
+    max-width: 70%;
+    width: auto !important;
+  }
+
+  .mhelpButtons{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    right: 12px;
+   /* transform: translateX(5px) */
+  }
+  .mhelp{
+    bottom:80px  
+  }
+  .mques{
+    bottom: 130px;
+  }
+  .otherMenu{
+      float: left;
+      width: 20%;
+      /* overflow: hidden; */
+  }
+  .otherMenu div{
+    background-color: #A7CFE2;
+    border-radius: 15px;
+    width: 150px;
+    height: 32px;
+    margin-bottom: 5px;
+    padding: 2px 0px 2px 6px;
+    box-shadow: 0px 0px 4px lightgrey;
+  }
+  .animateOut{
+    animation: outit 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes outit {
+    from{transform: translateX(0px);}
+    to{transform: translateX(-45px);}
+  }
+  .animateIn{
+    animation: init 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes init {
+    from{transform: translateX(-45px);}
+    to{transform: translateX(0px);}
+  }
+
+  .otherMenu img{
+    width: 25px;
+    height: 25px;
   }
 
 }
+
+/* @media(max-width:992px) and (min-width:659px){
+  .carousel{
+    width: 40%;
+  }
+}  */
+
