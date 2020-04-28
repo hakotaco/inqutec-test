@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Swipeable } from 'react-swipeable'
 import Carousel from 'react-bootstrap/Carousel'
-
+import ReactResizeDetector from 'react-resize-detector'
 // images
 import books from '../assets/books.svg'
 import question from '../assets/ques.svg'
@@ -59,12 +59,13 @@ export default class Mobile extends Component{
     inputFocus = (e) =>{
         console.log(e)
     }
+
     exCon=()=>{
         if(this.state.height===91){
             this.setState({
                 height:50
             })
-            if(window.innerHeight<720){
+            if(this.state.winHeight<720){
                 this.carouselRef.current.element.style.width="240px"
             }else{
                 this.carouselRef.current.element.style.width="300px"
@@ -78,7 +79,7 @@ export default class Mobile extends Component{
                 height:91
             })
             // this.carouselRef.current.element.style.width="80vw"
-            if(window.innerHeight<720){
+            if(this.state.winHeight<720){
                 this.carouselRef.current.element.style.width="80vw"
             }else{
                 this.carouselRef.current.element.style.width="80vw"
@@ -108,7 +109,25 @@ export default class Mobile extends Component{
         })
         console.log(a)
     }
-    
+    onResize=(w, h)=>{
+        console.log(w, h)
+        if(h<550){
+            this.carouselRef.current.element.style.width="240px"
+        }else{
+             if(this.state.height===50){
+                if(this.state.winHeight<720){
+                    this.carouselRef.current.element.style.width="240px"
+                }else{
+                    this.carouselRef.current.element.style.width="300px"
+                }
+             }else{
+                this.carouselRef.current.element.style.width="80vw"
+             }   
+        }
+        this.setState({
+            winHeight: h
+        })
+    }
     render(){
         const {selected, data, activeSlide} = this.state
         let steps = data.map((each, index)=>{
@@ -239,6 +258,7 @@ export default class Mobile extends Component{
                         </div>
                     </div>
                 </div>
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} />
             </div>
         )
     }
