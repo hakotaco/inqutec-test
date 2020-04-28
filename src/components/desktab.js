@@ -65,7 +65,7 @@ export default class Desktab extends Component{
                                 <p>{index+1}</p>
                             </div>
                             <div className="bar">
-                                <div className="innerBar" style={{width:'0%'}}>
+                                <div className="innerBar" style={{width:100*(index-1)/3+'%'}}>
                                 </div>
                             </div>
                     </div>
